@@ -24,13 +24,12 @@ const productsStore = create((set) => ({
     set({ isLoading: true, error: null });
     try {
       const response = await baseUrl.get("/products");
-      console.log(response);
       set({ products: response.data, isLoading: false });
     } catch (e) {
       set({ error: e.message, isLoading: false });
     }
   },
-  //   update or edit
+  //   update or edit product
   updateProduct: async (updatedProduct) => {
     set({ isLoading: true, error: null });
     try {
@@ -48,7 +47,7 @@ const productsStore = create((set) => ({
       set({ error: error.message, isLoading: false });
     }
   },
-  //   delete or remove
+  //   delete or remove product
   deleteProduct: async (productId) => {
     set({ isLoading: true, error: null });
     try {
